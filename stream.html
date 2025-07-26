@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AppVerse Live Stream</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f8f8f8; margin: 0; padding: 0; }
+    .header { background: #222; color: white; padding: 1rem; text-align: center; }
+    .container { max-width: 800px; margin: 2rem auto; background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+    .status { color: red; font-weight: bold; }
+    .video-container { width: 100%; height: 450px; background: #000; margin-top: 1rem; position: relative; }
+    .viewer-count { position: absolute; top: 10px; left: 10px; background: rgba(255,0,0,0.8); color: white; padding: 0.3rem 0.6rem; border-radius: 5px; }
+    .likes { position: absolute; bottom: 10px; right: 10px; background: rgba(255,255,255,0.9); padding: 0.3rem 0.6rem; border-radius: 5px; cursor: pointer; }
+    .replay-section { margin-top: 2rem; }
+    .replay-section video { width: 100%; border-radius: 10px; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>AppVerse 🔴 Live Stream</h1>
+  </div>
+  <div class="container">
+    <p class="status">🔴 Currently Streaming: Yes</p>
+    <div class="video-container">
+      <div class="viewer-count">👁️ 47 viewers</div>
+      <div class="likes" onclick="addLike()">❤️ 121</div>
+      <!-- Simulated livestream embed -->
+      <iframe width="100%" height="100%" src="https://www.youtube.com/embed/live_stream?channel=UC" frameborder="0" allowfullscreen></iframe>
+    </div>
+
+    <div class="replay-section">
+      <h3>📼 Last Stream Replay:</h3>
+      <video controls>
+        <source src="replay-sample.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </div>
+
+  <script>
+    function addLike() {
+      const likesEl = document.querySelector('.likes');
+      let currentLikes = parseInt(likesEl.textContent.replace('❤️', '').trim());
+      likesEl.textContent = `❤️ ${currentLikes + 1}`;
+    }
+  </script>
+</body>
+</html>
